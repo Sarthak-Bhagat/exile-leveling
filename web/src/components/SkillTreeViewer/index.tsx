@@ -1,3 +1,7 @@
+import {
+  characterLevelAtom,
+  levelTreeIndex,
+} from "../../state/character-level";
 import { TREE_DATA_LOOKUP } from "../../state/tree";
 import type { UrlTree } from "../../state/tree/url-tree";
 import { formStyles } from "../../styles";
@@ -12,6 +16,7 @@ import {
 } from "./url-tree-delta";
 import classNames from "classnames";
 import type { SkillTree } from "common";
+import { useAtomValue } from "jotai";
 import React, { type JSX } from "react";
 import { useEffect, useRef, useState } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
@@ -35,6 +40,18 @@ export function SkillTreeViewer({ urlTrees }: SkillTreeViewerProps) {
   const [renderData, setRenderData] = useState<RenderData>();
   const [styleId] = useState(() => randomId(6));
   const [tooltipNodeId, setTooltipNodeId] = useState<string | null>(null);
+
+  const characterLevel = useAtomValue(characterLevelAtom);
+  const levelIndex =
+    characterLevel === null
+      ? null
+      : levelTreeIndex(
+          urlTrees.map((x) => x.name),
+          characterLevel,
+        );
+  useEffect(() => {
+    if (levelIndex !== null) setCurIndex(levelIndex);
+  }, [levelIndex, urlTrees]);
 
   useEffect(() => {
     async function fn() {

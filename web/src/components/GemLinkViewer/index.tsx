@@ -1,3 +1,8 @@
+import {
+  characterLevelAtom,
+  levelTreeIndex,
+} from "../../state/character-level";
+import { urlTreesSelector } from "../../state/tree/url-tree";
 import { formStyles } from "../../styles";
 import { GemCost } from "../GemCost";
 import { InlineFakeBlock } from "../InlineFakeBlock";
@@ -5,6 +10,7 @@ import { SidebarTooltip } from "../SidebarTooltip";
 import styles from "./styles.module.css";
 import classNames from "classnames";
 import { Data, type RouteData } from "common";
+import { useAtomValue } from "jotai";
 import React, { type JSX } from "react";
 import { useEffect, useState } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
@@ -34,6 +40,24 @@ export function GemLinkViewer({ gemLinks }: GemLinkViewerProps) {
     setCurIndex(0); // Prevent out-of-bounds issues if the gem links change from a new build import
     setGemSections(findUniqueGemTitles(gemLinks));
   }, [gemLinks]);
+
+  // Follow the tree picked for the character level, when a gem set shares its name
+  const characterLevel = useAtomValue(characterLevelAtom);
+  const urlTrees = useAtomValue(urlTreesSelector);
+  const levelIndex =
+    characterLevel === null
+      ? null
+      : levelTreeIndex(
+          urlTrees.map((x) => x.name),
+          characterLevel,
+        );
+  const levelTreeName = levelIndex === null ? null : urlTrees[levelIndex].name;
+  useEffect(() => {
+    if (levelTreeName === null) return;
+
+    const index = findUniqueGemTitles(gemLinks).indexOf(levelTreeName);
+    if (index !== -1) setCurIndex(index);
+  }, [levelTreeName, gemLinks]);
 
   const activeGemLinks: RouteData.GemLinkGroup[] = gemLinks.filter(
     (link) => link.title === gemSections[curIndex]
