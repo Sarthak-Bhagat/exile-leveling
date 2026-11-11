@@ -1,6 +1,6 @@
 import { useSetAtom } from "jotai";
 import { useEffect } from "react";
-import { characterLevelAtom } from "../../state/character-level";
+import { characterLevelUpAtom } from "../../state/character-level";
 import { activeEdgeAtom } from "../../state/route";
 import { type Id, toast } from "react-toastify";
 import useWebSocket, { ReadyState } from "react-use-websocket-lite";
@@ -10,7 +10,7 @@ const AUTO_PROGRESS_URL = "ws://localhost:6754";
 
 export function useAutoProgress() {
   const write = useSetAtom(activeEdgeAtom);
-  const setCharacterLevel = useSetAtom(characterLevelAtom);
+  const levelUp = useSetAtom(characterLevelUpAtom);
   const { readyState } = useWebSocket({
     url: AUTO_PROGRESS_URL,
     shouldReconnect: true,
@@ -18,12 +18,7 @@ export function useAutoProgress() {
     onMessage(event) {
       if (typeof event.data === "string") {
         write(event.data);
-
-        const matches =
-          /^\S+ \S+ \d+ \S+ \[INFO Client \d+\] : \S+ \(\S+\) is now level (\d+)$/.exec(
-            event.data,
-          );
-        if (matches !== null) setCharacterLevel(Number(matches[1]));
+        levelUp(event.data);
       }
     },
   });
