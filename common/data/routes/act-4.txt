@@ -14,6 +14,8 @@ Free {quest_text|Deshret}
 ➞ {enter|1_4_3_3} #The Crystal Veins
 Get {crafting}
 {waypoint|1_4_town} #Highgate
+Gamble for a {generic|Reinforced Tower Shield}
+    #sub Level 30, 76 Str; aim for 400-500+ armour
 Hand in {quest|a4q6} #An Indomitable Spirit
 {waypoint|1_3_town} #The Sarn Encampment
 ➞ {enter|Labyrinth_Airlock}, get {waypoint_get} #Aspirants' Plaza

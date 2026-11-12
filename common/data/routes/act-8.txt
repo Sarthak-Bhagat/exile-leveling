@@ -29,6 +29,8 @@ Get {waypoint_get}
 Find and kill {kill|Dawn, Harbinger of Solaris}, take {quest_text|Sun Orb}
 Get {crafting}
 {logout}
+Gamble for a {generic|Girded Tower Shield}
+    #sub Level 51, 123 Str; 800-1000 armour finishes the campaign
 Hand in {quest|a8q1} #Essence of the Hag
 Hand in {quest|a8q7} #The Gemling Legion
 Hand in {quest|a8q6} #Love is Dead

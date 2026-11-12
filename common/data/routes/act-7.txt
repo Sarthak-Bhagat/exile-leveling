@@ -1,7 +1,5 @@
 #section Act 7
 {waypoint|2_7_town} #The Bridge Encampment
-Gamble for a {generic|Girded Tower Shield}
-    #sub Level 51, 123 Str; 800-1000 armour finishes the campaign
 ➞ {enter|2_7_1} #The Broken Bridge
 #ifdef LEAGUE_START
     Find and take {quest_text|Silver Locket}
