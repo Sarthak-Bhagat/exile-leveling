@@ -8,6 +8,7 @@ import { gemProgressFamily } from "../gem-progress";
 import { buildTreesSelector } from "../tree/build-tree";
 import { gemLinksSelector } from "../gem-links";
 import { processPob } from "./process";
+import { DEFAULT_POB, DEFAULT_POB_CODE } from "./default";
 import { routeProgressFamily } from "../route-progress";
 import { sectionCollapseFamily } from "../section-collapse";
 import { toast } from "react-toastify";
@@ -17,7 +18,7 @@ const POB_CODE_VERSION = 0;
 
 const pobCodeAtom = persistentAtom<string | null>(
   "pob-code",
-  null,
+  DEFAULT_POB ? DEFAULT_POB_CODE : null,
   POB_CODE_VERSION,
 );
 
