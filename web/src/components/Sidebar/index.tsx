@@ -17,7 +17,7 @@ import flattenChildren from "react-keyed-flatten-children";
 
 export function Sidebar() {
   const [expand, setExpand] = useState(true);
-  const [activeTab, setActiveTab] = useState<number>(0);
+  const [activeTab, setActiveTab] = useState<number>(-1);
 
   const sections = useSections();
   if (sections.length === 0) return <></>;
