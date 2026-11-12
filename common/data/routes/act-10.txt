@@ -49,6 +49,9 @@ Talk to {generic|Sin} ➞ {enter|2_10_town} #Oriath Docks
 Talk to {generic|Lilly Roth}, Set Sail from Oriath
 ➞ {enter|2_11_endgame_town} #Karui Shores
 Get {crafting}
+Gamble for a {generic|Colossal Tower Shield} or {generic|Cardinal Round Shield}
+    #sub Colossal: level 67, 159 Str; 1500-2000 armour is enough for red maps
+    #sub Cardinal Round: level 66, 85 Str and 85 Dex; armour and evasion, the endgame base
 #ifdef BANDIT_KILL
     Hand in {quest|a10q3} #An End to Hunger
         #sub Type {generic|/passives} in chat to confirm that you have all 24 passives from quests

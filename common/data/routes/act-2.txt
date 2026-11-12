@@ -33,6 +33,8 @@ Kill {kill|Fidelitas, the Mourning}, take {quest_text|Baleful Gem}
     #sub Recommended Level: 14-15
 {logout}
 Hand in {quest|a2q6} #Intruders in Black
+Gamble for a {generic|Painted Buckler}
+    #sub Level 16, 44 Dex; +200 evasion is a great roll
 {waypoint|1_2_3} #The Crossroads
 ➞ {enter|1_2_15} #The Fellshrine Ruins
     #sub Go {dir|135}

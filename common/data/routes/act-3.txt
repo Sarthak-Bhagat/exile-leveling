@@ -67,6 +67,8 @@ Get {crafting}
 {logout}
 Hand in {quest|a3q9} #Piety's Pets
 Hand in {quest|a3q8} #Sever the Right Hand
+Gamble for a {generic|Reinforced Tower Shield}
+    #sub Level 30, 76 Str; aim for 400-500+ armour
 {waypoint|1_3_13} #The Ebony Barracks
 ➞ {enter|1_3_15} #The Imperial Gardens
     #sub Go {dir|45}
