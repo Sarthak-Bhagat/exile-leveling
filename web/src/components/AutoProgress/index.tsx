@@ -36,7 +36,7 @@ export function useAutoProgress() {
         type: "info",
         onClick: () => {
           window.open(
-            "https://github.com/HeartofPhos/exile-log-api/releases",
+            "https://github.com/Sarthak-Bhagat/exile-log-api/releases",
             "_blank",
           );
         },
